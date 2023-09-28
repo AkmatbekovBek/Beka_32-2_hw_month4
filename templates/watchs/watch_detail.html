@@ -1,17 +1,17 @@
 {% include 'watchs/header.html' %}
 
 <center>
-<h1>{{watch_id_key.title}}</h1>
+<h1>{{object.title}}</h1>
 <h3>____________________________________________________________________________________________________________________________________________</h3>
-<img src="{{watch_id_key.image.url}}" alt="image" width="400" height="400">
-<p><b>{{watch_id_key.description}}</b></p>
+<img src="{{object.image.url}}" alt="image" width="400" height="400">
+<p><b>{{object.description}}</b></p>
 <h3>____________________________________________________________________________________________________________________________________________</h3>
-<h2><p><b>Часы: {{watch_id_key.watch_type}}</b></p></h2>
-<h2><p><b>Бренд: {{watch_id_key.watch_type2}}</b></p></h2>
-<h2><p><b>Стоимость: {{watch_id_key.cost}}</b></p></h2>
-<h3>Местонахождение: {{watch_id_key.watch_location}}</h3>
-<p><a href={{watch_id_key.watch_url}}>Ссылка на товар</a></p>
-<button type="button" class="btn btn-outline-danger"><a style="text-decoration: none" href="/watch_detail/{{watch_id_key.id}}/delete/">Удалить</a></button>
-<button type="button" class="btn btn-outline-primary"><a style="text-decoration: none" href="/watch_detail/{{watch_id_key.id}}/update/">Изменить</a></button>
+<h2><p><b>Часы: {{object.watch_type}}</b></p></h2>
+<h2><p><b>Бренд: {{object.watch_type2}}</b></p></h2>
+<h2><p><b>Стоимость: {{object.cost}}</b></p></h2>
+<h3>Местонахождение: {{object.watch_location}}</h3>
+<p><a href={{object.watch_url}}>Ссылка на товар</a></p>
+<button type="button" class="btn btn-outline-danger"><a style="text-decoration: none" href="/watch_detail/{{object.id}}/delete/">Удалить</a></button>
+<button type="button" class="btn btn-outline-primary"><a style="text-decoration: none" href="/watch_detail/{{object.id}}/update/">Изменить</a></button>
 </center>
 {% include 'watchs/footer.html' %}

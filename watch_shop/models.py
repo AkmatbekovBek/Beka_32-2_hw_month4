@@ -21,7 +21,7 @@ class watch(models.Model):
     image = models.ImageField('Добавьте фото', upload_to='watch_photo/', null=True)
     watch_type = models.CharField('Часы', max_length=70, choices=WATCH_TYPE, null=True)
     watch_type2 = models.CharField('Бренд часов', max_length=70, choices=WATCH_BRANDS, null=True, blank=True)
-    cost = models.PositiveIntegerField('Укажите цену', max_length=70, null=True)
+    cost = models.PositiveIntegerField('Укажите цену', null=True)
     watch_location = models.CharField('Укажите местонахождение часов', max_length=70, null=True)
     watch_url = models.URLField('Укажите ссылку', null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
