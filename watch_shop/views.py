@@ -109,3 +109,13 @@ class Search(generic.ListView):
         context['q'] = self.request.GET.get('q')
         return context
 
+class AddWatchShopReviews(generic.CreateView):
+    template_name = 'watchs/crud/write_reviews.html'
+    form_class = forms.WatchShopReviewsForm
+    queryset = models.watch.objects.all()
+    success_url = '/'
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super(AddWatchShopReviews, self).form_valid(form=form)
+

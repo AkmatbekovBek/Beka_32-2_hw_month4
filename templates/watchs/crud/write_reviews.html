@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Создание Часов</title>
+    <title>Написать отзыв</title>
 </head>
 <body>
 
-<form action="/create_watch/" method="POST" enctype="multipart/form-data" class="transparent">
+<form action="/reviews/add/" method="POST" enctype="multipart/form-data" class="transparent">
 <div class="form-inner">
 
-<h3>Добавить Часы</h3>
+<h3>Добавить Отзыв</h3>
     {% csrf_token %}
     {{form.as_p}}
 
@@ -118,6 +118,7 @@
    background: #1762EE;
 }
 </style>
+
 
 </body>
 </html>

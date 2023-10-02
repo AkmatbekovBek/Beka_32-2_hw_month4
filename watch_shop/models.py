@@ -33,3 +33,26 @@ class watch(models.Model):
         verbose_name = 'Часы'
         verbose_name_plural = 'Часы'
 
+
+class Reviews(models.Model):
+    review_stars = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5')
+    )
+
+    review_object = models.ForeignKey(watch, on_delete=models.CASCADE,
+                                      related_name='comment_object')
+    review_text = models.TextField('Напишите отзыв')
+    review_stars = models.CharField(max_length=100, choices=review_stars)
+    reviews_created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Отзыв'
+        verbose_name_plural = 'Отзывы'
+
+    def __str__(self):
+        return self.review_text
+

@@ -13,5 +13,30 @@
 <p><a href={{object.watch_url}}>Ссылка на товар</a></p>
 <button type="button" class="btn btn-outline-danger"><a style="text-decoration: none" href="/watch_detail/{{object.id}}/delete/">Удалить</a></button>
 <button type="button" class="btn btn-outline-primary"><a style="text-decoration: none" href="/watch_detail/{{object.id}}/update/">Изменить</a></button>
+
+   <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ОТЗЫВЫ</th>
+      <th scope="col">Оценка:</th>
+      <th scope="col">Комментарий:</th>
+      <th scope="col">Дата создания:</th>
+    </tr>
+  </thead>
+    {% for i in object.comment_object.all %}
+  <tbody>
+    <tr>
+      <th scope="row">💬</th>
+      <td>{{i.review_stars}}</td>
+      <td>{{i.review_text}}</td>
+      <td>{{i.reviews_created_at}}</td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
 </center>
 {% include 'watchs/footer.html' %}
+
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Parsing</title>
+</head>
+<body>
+<center>
+    <h1> <<< Start Parsing >>> </h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Взять данные...</button>
+    <h3>🔽🔽🔽</h3>
+
+</form>
+
+<a href="/film-list/">ПЕРЕЙТИ К СПИСКУ ФИЛЬМОВ</a>
+    </center>
+</body>
+</html>
