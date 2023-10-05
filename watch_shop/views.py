@@ -3,6 +3,12 @@ from . import models, forms
 from django.http import HttpResponse
 from django.views import generic
 
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.views import LoginView
+from django.urls import reverse
+from django.views.generic import CreateView, ListView
+
 
 class WatchShopView(generic.ListView):
     template_name = 'watchs/watch.html'
@@ -15,6 +21,8 @@ class WatchShopView(generic.ListView):
 #     watch = models.watch.objects.all()
 #     return render(request, 'watchs/watch.html', {'watch_key': watch})
 
+
+
 class WatchShopDetailView(generic.DetailView):
     template_name = 'watchs/watch_detail.html'
 
@@ -22,10 +30,10 @@ class WatchShopDetailView(generic.DetailView):
         watch_id = self.kwargs.get('id')
         return get_object_or_404(models.watch, id=watch_id)
 
-
 # def watch_shop_detail_view(request, id):
 #     watch_id = get_object_or_404(models.watch, id=id)
 #     return render(request, 'watchs/watch_detail.html', {'watch_id_key': watch_id})
+
 
 
 class AddWatchShopView(generic.CreateView):
@@ -67,6 +75,7 @@ class DeleteWatchShopView(generic.DeleteView):
 #     return HttpResponse('Удаление <<Часов>> прошло успешно!')
 
 
+
 class UpdateWatchShopView(generic.UpdateView):
     template_name = 'watchs/crud/update_watch.html'
     form_class = forms.WatchShopForm
@@ -96,6 +105,8 @@ class UpdateWatchShopView(generic.UpdateView):
 #         }
 #     return render(request, 'watchs/crud/update_watch.html', context)
 
+
+
 class Search(generic.ListView):
     template_name = 'watchs/watch.html'
     context_object_name = 'watch'
@@ -118,4 +129,33 @@ class AddWatchShopReviews(generic.CreateView):
     def form_valid(self, form):
         print(form.cleaned_data)
         return super(AddWatchShopReviews, self).form_valid(form=form)
+
+
+
+class RegistrationView(CreateView):
+    form_class = forms.RegistraionNewForm
+    success_url = '/'
+    template_name = 'registration/registration.html'
+
+class AuthLoginView(LoginView):
+    form_class = AuthenticationForm
+    template_name = 'registration/login.html'
+    success_url = '/'
+
+    def get_success_url(self):
+        return reverse('users:user_list')
+
+class UserListView(ListView):
+    queryset = User.objects.all()
+    template_name = 'registration/user_list.html'
+
+    def get_queryset(self):
+        return User.objects.all()
+
+
+
+
+
+
+
 

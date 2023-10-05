@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Написать отзыв</title>
+    <title>Вход на аккаунт</title>
 </head>
 <body>
-
-<form method="POST" enctype="multipart/form-data" class="transparent">
+<form method="post" enctype="multipart/form-data" class="transparent">
+    <center>
 <div class="form-inner">
-
-<h3>Добавить Отзыв</h3>
+    <h1>Войти в аккаунт</h1>
     {% csrf_token %}
     {{form.as_p}}
+    <button type="submit">Вход</button>
 
-
-
+    <h2>Вы еще не зарегистрированы ?</h2>
+<button><a href="/registration/">Регистрация</a></button>
 </div>
+        </center>
 </form>
+
 
 
 <style>
@@ -28,7 +30,7 @@
    max-width: 1000px;
    padding: 60px 50px;
    margin: 50px auto 0;
-   background-image: url(https://trendymen.ru/images/sliders/2634/slide27750.jpg);
+   background-image: url(https://kartinki.pics/pics/uploads/posts/2022-08/thumbs/1659963314_3-kartinkin-net-p-naruchnie-chasi-na-zastavku-krasivo-3.jpg);
    background-size: cover;
 }
 .transparent:before {
